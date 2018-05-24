@@ -85,3 +85,16 @@ body {
 	position: absolute;
 	margin: 20px;
 }
+
+.money-content {
+	margin:auto;
+}
+.money-content > p {
+	margin: 5%;
+	text-align: justify;
+}
+.money-content > img {
+	margin: 5%;
+	width: 90%;
+	border-radius: 3px;
+}
