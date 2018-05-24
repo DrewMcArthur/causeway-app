@@ -51,7 +51,7 @@ $(document).ready(function(){
 					//and then calculate width
 		$('.links').addClass('inPic');
 		//$('.more-info').css('width', ((maxHeight / 235 * 313) - 20 + 'px'));
-		//centerDiv('.more-info');
+		centerDiv('.more-info');
 	} else { //otherwise, just set the height
 		$('div.status-display').height(imgHeight + 'px');
 	}
@@ -82,6 +82,7 @@ $(document).ready(function(){
 				$('.more-info').width($('.status-display').width() + 'px');
 			else
 				$('.more-info').width($('.status-display').width() - 60 + 'px');
+      centerDiv('.more-info');
 
 			//otherwise, load the page
 			$(wrapper).load(clickeduri);
