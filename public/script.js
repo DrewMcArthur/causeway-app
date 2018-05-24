@@ -28,14 +28,14 @@ var centerDiv = function(selector){
 	$(selector).css('left', l + 'px');
 }
 var handleMoreInfoLocation = function(){
-	var linksHeight = $('.links').position().top;
-	var height = $(window).height();
+	//var linksHeight = $('.links').position().top;
+	//var height = $(window).height();
 	//if the links are more than halfway down the page, then the fun begins
-	if (linksHeight > (height * 3 / 5)){
+	//if (linksHeight > (height * 3 / 5)){
 		$('#status').addClass('moreInfoOverlay');
 		$('.links').addClass('moreInfoOverlay');
 		$('.more-info').addClass('moreInfoOverlay');
-	}
+	//}
 }
 
 $(document).ready(function(){
@@ -82,6 +82,7 @@ $(document).ready(function(){
 				$('.more-info').width($('.status-display').width() + 'px');
 			else
 				$('.more-info').width($('.status-display').width() - 60 + 'px');
+			centerDiv('.more-info');
 
 			//otherwise, load the page
 			$(wrapper).load(clickeduri);
