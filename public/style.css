@@ -7,6 +7,8 @@ body {
 	width: 100%;
 	margin: auto;
 }
+
+
 .status-display {
 	background-image: url('/images/bridge_open.JPG');
 	text-align: center;
@@ -27,14 +29,13 @@ body {
 	-webkit-transition: background-color 0.5s;
 		transition: background-color 0.5s;
 }
+
+
 .links {
 	margin: auto;
 	width: 208px;
 	position: absolute;
-	/*
-	-webkit-transition: top 0.5s;
-		transition: top 0.5s;
-	*/
+	animation: movedown 1s cubic-bezier(.12,.98,.38,1);
 }
 .links div {
 	border:1px solid #666;
@@ -55,6 +56,7 @@ body {
 	color: #222;
 	border-color: #222;
 }
+
 .more-info {
 	margin: 80px auto;
 	padding: 10px;
@@ -73,31 +75,79 @@ body {
 	color: #DDD;
 	border-color: #DDD;
 }
+
+
 #status.moreInfoOverlay {
 	background-color: rgba(255,255,255,.85);
 	color: #666;
 }
 .links.moreInfoOverlay {
 	top: 9em;
+	animation: moveup 1s cubic-bezier(.12,.98,.38,1);
 }
 .more-info.moreInfoOverlay {
 	top: 12em;
 	position: absolute;
 	margin: 20px;
+	animation: fadeinup 1s cubic-bezier(.12,.98,.38,1);
 }
 
-.money-content {
+
+.about-content {
 	margin:auto;
 	width: 364px;
 }
-.money-content > p {
+.about-content > p {
 	margin: 5%;
 	text-align: justify;
 }
-.money-content > img {
+.about-content > img {
 	margin: 5%;
 	width: 90%;
 	border-radius: 3px;
+}
+
+/* keyframes */
+/* used for more-info */
+@keyframes fadeinup {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5em);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeoutdown {
+  from {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-5em);
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0em);
+  }
+}
+@keyframes moveup {
+  from {
+    transform: translateY(5em);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes movedown {
+  from {
+    transform: translateY(-5em);
+  }
+  to {
+    transform: translateY(0em);
+  }
 }
 
 /* media queries */
@@ -106,7 +156,7 @@ body {
   and (min-device-width: 320px) 
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 2) {
-	.money-content {
+	.about-content {
 		width: 100%;
 	}
 }
