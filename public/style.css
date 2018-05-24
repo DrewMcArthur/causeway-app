@@ -88,6 +88,7 @@ body {
 
 .money-content {
 	margin:auto;
+	width: 364px;
 }
 .money-content > p {
 	margin: 5%;
