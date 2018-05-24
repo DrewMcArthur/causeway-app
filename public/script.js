@@ -43,6 +43,7 @@ $(document).ready(function(){
 	var maxHeight = $(window).height() - 40; //don't wanna have to scroll
 	var imgWidth = $('div.status-display').width(); //from the screen width
 	var imgHeight = imgWidth / 313 * 235; //get the height with a ratio
+
 	if(imgHeight > maxHeight){ //if this is bigger than the screen
 		$('div.status-display').css('margin','20px auto') //reset margin
 				       .height(maxHeight + 'px') //set maxHeight
@@ -81,19 +82,9 @@ $(document).ready(function(){
 				$('.more-info').width($('.status-display').width() + 'px');
 			else
 				$('.more-info').width($('.status-display').width() - 60 + 'px');
-			centerDiv('.more-info');
+
 			//otherwise, load the page
-			$(wrapper).load(clickeduri, function(){
-				$(this).ready(function(){
-					/*
-					if(clickeduri == '/admin') {
-						$('.more-info').width($('div.status-display').width() - 20 + 'px');
-					} else {
-						$('.more-info').removeProp('width');
-					}
-					*/
-				});
-			});
+			$(wrapper).load(clickeduri);
 			$('.links div').removeClass('active');
 			$(this).addClass('active');
 			$('.links').removeClass('inPic');
