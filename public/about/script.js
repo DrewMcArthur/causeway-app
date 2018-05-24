@@ -2,6 +2,7 @@ $(document).ready(function(){
 	if(status) $('.open').select();
 	else $('.closed').select();
 
+  // update event
 	$('.update-btn').on('click', function(){
 		var data = {};
 		data.stat = $('.open').is(':checked');
@@ -10,10 +11,14 @@ $(document).ready(function(){
 		$('input.pw').val('');
 		$('more-info').hide();
 	});
+
+  // incorrect password event
 	socket.on('incorrect-pass', function(){
 		$('input.pw').attr('placeholder', 'incorrect');
 	});
 });
+
+// string method to get hash from string
 String.prototype.hashCode = function() {
   var hash = 0, i, chr, len;
   if (this.length === 0) return hash;
