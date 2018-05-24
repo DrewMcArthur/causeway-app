@@ -1,15 +1,13 @@
 .money-content {
 	margin:auto;
 }
+p, img{ 
+	margin: 5%;
+}
 p {
-	margin: 10px;
-	display: inline-block;
-	width: 55%;
 	text-align: justify;
 }
 img {
-	margin: 10px;
-	float: left;
-	width: 30%;
+	width: 90%;
 	border-radius: 3px;
 }
