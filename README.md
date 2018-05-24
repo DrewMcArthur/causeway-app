@@ -1,34 +1,25 @@
-node-express-server
+causeway app
 ===================
 
-An attempt at a web server using Node.js and Express
+This webapp simply displays the status of the padanaram causeway, due to the constructions.
 
 A How To for the setup. 
 
 1. Install node.js, npm, and git
 
-    `apt-get install nodejs npm git`
+    `curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -`
+    `sudo apt-get install nodejs npm git`
 
-2. install express frameworks
+2. clone into repository found [here](https://www.github.com/DrewMcArthur/causeway-app)
 
-    `npm install -g express`
+    `git clone git@github.com:DrewMcArthur/causeway-app.git`
 
-3. clone into repository found [here](https://www.github.com/DrewMcArthur/node-express-server)
-
-    `git clone git@github.com:DrewMcArthur/node-express-server.git`
-
-4. in directory, run npm install to install dependencies
+3. in directory, run npm install to install dependencies
 
     `npm install`
 
-5. run server with nodejs app.js 
+4. run server with nodejs app.js 
 
-    `nodejs app.js`
+    `sudo nodejs app.js`
 
-6. …?
-
-7. Profit!
-
-8. Your Web Server is now running at [`http://localhost:1337`](http://localhost:1337)
-
-NOTE:  some commands may require root privelages, i.e. `sudo`.  See 1,2, and 4
+5. Your Web Server is now running at [`http://localhost`](http://localhost)
