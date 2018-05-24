@@ -99,3 +99,14 @@ body {
 	width: 90%;
 	border-radius: 3px;
 }
+
+/* media queries */
+/* ----------- iPhone 5 through X ----------- */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	.money-content {
+		width: 100%;
+	}
+}
