@@ -2,10 +2,10 @@
 	display: table;
 	margin: 20px auto;
 }
-.status-btns {
+.admin-content .status-btns {
 	display:inline-block;
 }
-.status-btns div {
+.admin-content .status-btns div {
 	display: inline-block;
 	border: 1px solid #666;
 	border-radius: 3px;
@@ -15,25 +15,25 @@
 	font-size: 1.4em;
 	cursor: pointer;
 }
-.status-btns div:hover {
+.admin-content .status-btns div:hover {
 	padding: 13px;
 	margin: 4px;
 }
-.status-btns .active {
+.admin-content .status-btns .active {
 	padding: 12px;
 	margin: 5px;
 }
-.status-btns .open:hover,
-.status-btns .open.active {
+.admin-content .status-btns .open:hover,
+.admin-content .status-btns .open.active {
 	       color: rgb(100,160,100);
 	border-color: rgb(100,160,100);
 }
-.status-btns .closed:hover,
-.status-btns .closed.active {
+.admin-content .status-btns .closed:hover,
+.admin-content .status-btns .closed.active {
 	       color: rgb(160,100,100);
 	border-color: rgb(160,100,100);
 }
-.pass-contain {
+.admin-content .pass-contain {
 	margin: auto;
 	display: table;
 }
