@@ -63,21 +63,20 @@ $(document).ready(function(){
 		//link of the button we clicked
 		var clickeduri = $(this).attr('data-uri').substr(1);
 		//where to put the information
-		var wrapper = 'div.more-info';
-
+		var wrapper = 'div.more-info ';
+    $(wrapper + "div").hide();
 		//checking if the page we clicked is already there
 		if($(wrapper).hasClass(clickeduri)){
 			//if it is, then hide it,
-			$(wrapper).children().remove();
+			//$(wrapper).children().remove();
 			$(wrapper).removeClass(clickeduri);
 			$(this).removeClass('active');
 			$('.moreInfoOverlay').removeClass('moreInfoOverlay');
-			if(imgHeight > maxHeight){
-				$('.links').addClass('inPic');
-				centerDiv('.links');
-			}
+      $('.links').addClass('inPic');
+      centerDiv('.links');
 		}else{ 
 			handleMoreInfoLocation();
+      // TODO handle width better
 			if(isMobile)
 				$('.more-info').width($('.status-display').width() + 'px');
 			else
@@ -85,10 +84,11 @@ $(document).ready(function(){
 			centerDiv('.more-info');
 
 			//otherwise, load the page
-			$(wrapper).load(clickeduri);
+			//$(wrapper).load(clickeduri);
+      $(wrapper + clickeduri).show();
 			$('.links div').removeClass('active');
 			$(this).addClass('active');
-			$('.links').removeClass('inPic');
+			//$('.links').removeClass('inPic');
 			centerDiv('.links');
 			$(wrapper).removeClass('howto')
 				  .removeClass('admin')
@@ -96,4 +96,47 @@ $(document).ready(function(){
 				  .addClass(clickeduri);
 		}
 	});
+
+  // script for admin modal
+  
+	// select the current status
+	if(causewayStatus) $('.open').addClass('active');
+	else $('.closed').addClass('active');
+
+	// handle button clicking
+	$('.status-btns div').on('click', function(){
+		if(!$(this).hasClass('active'))
+			$('.status-btns div').removeClass('active');
+			$(this).addClass('active');
+	});
+
+	// submit form
+	$('.update-btn').on('click', function(){
+		var data = {};
+		data.stat = $('.open').hasClass('active');
+		data.pw = $('.pw').val().hashCode();
+		socket.emit('admin-update', data);
+		$('input.pw').val('');
+	});
+
+	// handle server response 
+	socket.on('correct-pass',function(){
+		$('input.pw').attr('placeholder', 'password');
+		$('.links .admin').click();
+	});
+	socket.on('incorrect-pass', function(){
+		$('input.pw').attr('placeholder', 'incorrect');
+	});
 });
+
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr, len;
+  if (this.length === 0) return hash;
+  for (i = 0, len = this.length; i < len; i++) {
+    chr   = this.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+};
+
